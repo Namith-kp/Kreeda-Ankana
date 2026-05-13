@@ -33,6 +33,7 @@ app/google-services.json
 # Keystore files containing private keys for signing APKs
 *.jks
 *.keystore
+!app/debug.keystore
 keystore.properties
 signing.properties
 
