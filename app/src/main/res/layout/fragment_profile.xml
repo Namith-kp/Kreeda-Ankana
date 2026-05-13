@@ -358,7 +358,17 @@
                 android:gravity="center"
                 android:textSize="12sp"
                 android:alpha="0.5"
-                android:layout_marginTop="32dp"
+                android:layout_marginTop="32dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Copyright © 2026 | Developed by Namith K P"
+                style="@style/TextAppearance.App.BodyMedium"
+                android:gravity="center"
+                android:textSize="11sp"
+                android:alpha="0.4"
+                android:layout_marginTop="4dp"
                 android:layout_marginBottom="32dp"/>
 
         </LinearLayout>
