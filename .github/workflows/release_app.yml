@@ -43,7 +43,7 @@ jobs:
         run: python scripts/release_updater.py
 
       - name: Build APK (Assemble Release/Debug)
-        run: ./gradlew assembleDebug
+        run: ./gradlew assembleRelease
 
       - name: Create GitHub Release
         id: create_release
@@ -53,14 +53,14 @@ jobs:
           name: Kreeda Ankana ${{ env.VERSION_NAME }} - Release
           draft: false
           prerelease: false
-          files: app/build/outputs/apk/debug/app-debug.apk
+          files: app/build/outputs/apk/release/app-release.apk
           body: |
             # 🚀 Kreeda Ankana ${{ env.VERSION_NAME }} - Updated Version!
             
             This release was automatically compiled, verified, and published via GitHub Actions CI/CD pipeline.
             
             ### 📲 How to Install:
-            1. Download the **`app-debug.apk`** from the Assets list below.
+            1. Download the **`app-release.apk`** from the Assets list below.
             2. Run the file on your Android device and enjoy the update!
             
             _Live users have been notified of this update via the in-app popup dialog!_
