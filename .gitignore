@@ -42,3 +42,14 @@ signing.properties
 .code-review-graph/
 .mcp.json
 .opencode.json
+
+# IDE / AI Rule & Guideline Files
+.cursorrules
+.windsurfrules
+AGENTS.md
+CLAUDE.md
+GEMINI.md
+
+# PRD Documents
+Kreeda_Ankana_PRD.pdf
+
