@@ -1,0 +1,44 @@
+# Build outputs and Gradle cache
+.gradle/
+build/
+app/build/
+*.apk
+*.aar
+*.aab
+
+# Local configuration and private files (SDK paths, local API keys)
+local.properties
+
+# Android Studio and IDE settings
+.idea/
+*.iml
+.navigation/
+captures/
+.externalNativeBuild/
+.cxx/
+local.properties
+
+# JVM / Gradle Heap Dumps
+*.hprof
+
+# Log and OS files
+*.log
+.DS_Store
+
+# --- SENSITIVE DATA & CREDENTIALS ---
+# Firebase configuration containing sensitive API keys and Client IDs
+google-services.json
+app/google-services.json
+
+# Keystore files containing private keys for signing APKs
+*.jks
+*.keystore
+keystore.properties
+signing.properties
+
+# Local MCP servers, custom rule folders and temporary workspace files
+.claude/
+.kiro/
+.code-review-graph/
+.mcp.json
+.opencode.json

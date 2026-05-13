@@ -1,0 +1,11 @@
+<resources>
+    <dimen name="card_corner_radius">16dp</dimen>
+    <dimen name="card_margin">8dp</dimen>
+    <dimen name="screen_padding">16dp</dimen>
+    <dimen name="text_large">22sp</dimen>
+    <dimen name="text_medium">16sp</dimen>
+    <dimen name="text_small">13sp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="button_height">56dp</dimen>
+    <dimen name="item_spacing">6dp</dimen>
+</resources>

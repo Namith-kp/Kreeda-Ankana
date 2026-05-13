@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.kreedaankana.ui.home.HomeFragment"
+        android:label="Home"/>
+
+    <fragment
+        android:id="@+id/calendarFragment"
+        android:name="com.kreedaankana.ui.calendar.CalendarFragment"
+        android:label="Ground Calendar"/>
+
+    <fragment
+        android:id="@+id/challengeFragment"
+        android:name="com.kreedaankana.ui.challenge.ChallengeFragment"
+        android:label="Challenge Board"/>
+
+    <fragment
+        android:id="@+id/scoreWallFragment"
+        android:name="com.kreedaankana.ui.scorewall.ScoreWallFragment"
+        android:label="Score Wall"/>
+
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.kreedaankana.ui.profile.ProfileFragment"
+        android:label="My Profile">
+        <action
+            android:id="@+id/action_profile_to_myBookings"
+            app:destination="@id/myBookingsFragment" />
+        <action
+            android:id="@+id/action_profile_to_myChallenges"
+            app:destination="@id/myChallengesFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/myBookingsFragment"
+        android:name="com.kreedaankana.ui.profile.MyBookingsFragment"
+        android:label="My Bookings" />
+
+    <fragment
+        android:id="@+id/myChallengesFragment"
+        android:name="com.kreedaankana.ui.profile.MyChallengesFragment"
+        android:label="My Challenges" />
+
+</navigation>

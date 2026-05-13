@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Sports logo - cricket/volleyball ball design -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="120dp"
+    android:height="120dp"
+    android:viewportWidth="120"
+    android:viewportHeight="120">
+
+    <!-- Outer glow ring -->
+    <path
+        android:fillColor="#33FF6F00"
+        android:pathData="M60,5 A55,55 0 1,1 59.99,5 Z"/>
+
+    <!-- Main circle - green ground -->
+    <path
+        android:fillColor="#2E7D32"
+        android:pathData="M60,10 A50,50 0 1,1 59.99,10 Z"/>
+
+    <!-- Orange accent ring -->
+    <path
+        android:fillColor="#FF6F00"
+        android:strokeWidth="0"
+        android:pathData="M60,10 A50,50 0 0,1 110,60 L104,60 A44,44 0 0,0 60,16 Z"/>
+
+    <!-- Stylized K letter for Kreeda -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M42,35 L42,85 L50,85 L50,65 L62,85 L72,85 L57,58 L70,35 L60,35 L50,52 L50,35 Z"/>
+
+    <!-- Small volleyball dots -->
+    <path android:fillColor="#FF6F00" android:pathData="M75,40 A5,5 0 1,1 74.99,40 Z"/>
+    <path android:fillColor="#F9A825" android:pathData="M80,55 A4,4 0 1,1 79.99,55 Z"/>
+    <path android:fillColor="#FF6F00" android:pathData="M74,70 A5,5 0 1,1 73.99,70 Z"/>
+
+</vector>

@@ -1,0 +1,935 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?android:attr/windowBackground">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent">
+
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/splash_gradient"
+                android:orientation="vertical"
+                android:paddingHorizontal="24dp"
+                android:paddingTop="12dp"
+                android:paddingBottom="48dp">
+
+                <!-- Premium Header Top Row -->
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:gravity="center_vertical">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+                        
+                        <ImageView
+                            android:layout_width="16dp"
+                            android:layout_height="16dp"
+                            android:src="@drawable/ic_location"
+                            app:tint="#E0FFFFFF" />
+
+                        <TextView
+                            android:id="@+id/tv_date"
+                            style="@style/TextAppearance.App.BodyMedium"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="4dp"
+                            android:textColor="#E0FFFFFF"
+                            android:textSize="12sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <!-- Profile Circle Placeholder -->
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:layout_alignParentEnd="true"
+                        app:cardCornerRadius="16dp"
+                        app:cardElevation="2dp"
+                        app:strokeWidth="0dp">
+                        
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:src="@drawable/ic_person"
+                            android:padding="6dp"
+                            android:background="@color/primary_light"
+                            app:tint="@color/primary_dark" />
+                    </com.google.android.material.card.MaterialCardView>
+
+                </RelativeLayout>
+
+                <!-- Modern Greetings -->
+                <TextView
+                    android:id="@+id/tv_greeting"
+                    style="@style/TextAppearance.App.TitleLarge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="Welcome to\nKreeda-Ankana! 🏟️"
+                    android:textColor="@color/white"
+                    android:textSize="26sp"
+                    android:lineSpacingExtra="2dp"
+                    android:fontFamily="@font/roboto_bold" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_register_team"
+                    style="@style/Widget.Material3.Button.TonalButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="Update Team Profile"
+                    android:textColor="@color/primary_dark"
+                    app:backgroundTint="@color/white"
+                    app:icon="@drawable/ic_challenge"
+                    app:iconTint="@color/primary_dark" />
+
+            </LinearLayout>
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/home_scroll_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="-28dp"
+        android:background="@drawable/rounded_surface_bg"
+        android:fillViewport="true"
+        android:clipChildren="false"
+        android:clipToPadding="false"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="20dp"
+            android:clipChildren="false"
+            android:clipToPadding="false">
+
+            <!-- Team Info Card -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/card_team_info"
+                style="@style/AppCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:visibility="gone"
+                app:cardBackgroundColor="@color/primary_light"
+                app:strokeWidth="0dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="16dp">
+
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:src="@drawable/ic_trophy"
+                        app:tint="@color/primary" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Active Team"
+                            style="@style/TextAppearance.App.BodyMedium"
+                            android:textColor="@color/primary_dark"
+                            android:textSize="12sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tv_sport"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/primary_dark"
+                            android:textSize="16sp"
+                            android:fontFamily="@font/roboto_bold" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/tv_location"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/primary_dark"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        android:alpha="0.8"/>
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- CTA Card if user is not in any team -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/card_no_team_cta"
+                style="@style/AppCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:visibility="gone"
+                app:strokeWidth="1dp"
+                app:strokeColor="?attr/colorPrimary">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginBottom="12dp">
+
+                        <ImageView
+                            android:layout_width="28dp"
+                            android:layout_height="28dp"
+                            android:src="@drawable/ic_trophy"
+                            app:tint="?attr/colorPrimary" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="12dp"
+                            android:text="Ready to Join the Action?"
+                            style="@style/TextAppearance.App.TitleMedium"
+                            android:textStyle="bold"
+                            android:textColor="?attr/colorOnSurface" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="To post challenges, book slots, or join tournaments, you must be part of a team. Choose one of the options below to get started!"
+                        style="@style/TextAppearance.App.BodyMedium"
+                        android:textColor="?attr/colorOnSurface"
+                        android:alpha="0.8"
+                        android:layout_marginBottom="16dp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:weightSum="2">
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btn_home_browse_teams"
+                            style="@style/Widget.Material3.Button.TonalButton"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginEnd="6dp"
+                            android:text="Join Existing"
+                            app:icon="@drawable/ic_person"
+                            app:iconSize="16dp" />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btn_home_create_team"
+                            style="@style/Widget.Material3.Button"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginStart="6dp"
+                            android:text="Create New"
+                            app:icon="@drawable/ic_challenge"
+                            app:iconSize="16dp" />
+                    </LinearLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- ================= DYNAMIC BANNERS CAROUSEL ================= -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                android:text="Featured Updates"
+                style="@style/TextAppearance.App.TitleLarge"
+                android:textSize="18sp"
+                android:fontFamily="@font/roboto_bold" />
+
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="-20dp"
+                android:paddingHorizontal="20dp"
+                android:paddingVertical="12dp"
+                android:clipToPadding="false"
+                android:clipChildren="false"
+                android:layout_marginBottom="16dp"
+                android:scrollbars="none">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:clipChildren="false"
+                    android:clipToPadding="false"
+                    android:gravity="center_vertical">
+
+                    <!-- Banner 1: Summer Cricket Cup -->
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/card_featured_cricket_cup"
+                        android:layout_width="300dp"
+                        android:layout_height="140dp"
+                        android:layout_marginEnd="16dp"
+                        android:layout_marginVertical="6dp"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        app:cardCornerRadius="16dp"
+                        app:cardElevation="6dp"
+                        android:clipToOutline="true"
+                        app:cardPreventCornerOverlap="false"
+                        app:strokeWidth="0dp">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/banner_gradient_tournament"
+                            android:padding="16dp">
+
+                            <TextView
+                                android:id="@+id/tag_tourney"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/status_badge_modern"
+                                android:backgroundTint="#40FFFFFF"
+                                android:paddingHorizontal="10dp"
+                                android:paddingVertical="4dp"
+                                android:text="TOURNAMENT LIVE"
+                                android:textColor="@color/white"
+                                android:textSize="10sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@id/tag_tourney"
+                                android:layout_marginTop="8dp"
+                                android:text="Summer Cricket Cup"
+                                android:textColor="@color/white"
+                                android:textSize="18sp"
+                                android:fontFamily="@font/roboto_bold" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentBottom="true"
+                                android:text="₹15,000 Prize Pool • Register Now"
+                                android:textColor="#EFFFFFFF"
+                                android:textSize="12sp" />
+
+                            <ImageView
+                                android:layout_width="64dp"
+                                android:layout_height="64dp"
+                                android:layout_alignParentEnd="true"
+                                android:layout_alignParentBottom="true"
+                                android:src="@drawable/ic_trophy"
+                                android:alpha="0.25"
+                                app:tint="@color/white" />
+
+                        </RelativeLayout>
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <!-- Banner 2: Ground Booking Discounts -->
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/card_featured_floodlight_promo"
+                        android:layout_width="300dp"
+                        android:layout_height="140dp"
+                        android:layout_marginEnd="16dp"
+                        android:layout_marginVertical="6dp"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        app:cardCornerRadius="16dp"
+                        app:cardElevation="6dp"
+                        android:clipToOutline="true"
+                        app:cardPreventCornerOverlap="false"
+                        app:strokeWidth="0dp">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/banner_gradient_booking"
+                            android:padding="16dp">
+
+                            <TextView
+                                android:id="@+id/tag_booking"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/status_badge_modern"
+                                android:backgroundTint="#40FFFFFF"
+                                android:paddingHorizontal="10dp"
+                                android:paddingVertical="4dp"
+                                android:text="EXCLUSIVE DISCOUNT"
+                                android:textColor="@color/white"
+                                android:textSize="10sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@id/tag_booking"
+                                android:layout_marginTop="8dp"
+                                android:text="Floodlight Ground Promo"
+                                android:textColor="@color/white"
+                                android:textSize="18sp"
+                                android:fontFamily="@font/roboto_bold" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentBottom="true"
+                                android:text="Flat 20% off on all late evening slots!"
+                                android:textColor="#EFFFFFFF"
+                                android:textSize="12sp" />
+
+                            <ImageView
+                                android:layout_width="64dp"
+                                android:layout_height="64dp"
+                                android:layout_alignParentEnd="true"
+                                android:layout_alignParentBottom="true"
+                                android:src="@drawable/ic_calendar"
+                                android:alpha="0.25"
+                                app:tint="@color/white" />
+
+                        </RelativeLayout>
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <!-- Banner 3: Free Agents Recruitment -->
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/card_featured_free_agents"
+                        android:layout_width="300dp"
+                        android:layout_height="140dp"
+                        android:layout_marginVertical="6dp"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        app:cardCornerRadius="16dp"
+                        app:cardElevation="6dp"
+                        android:clipToOutline="true"
+                        app:cardPreventCornerOverlap="false"
+                        app:strokeWidth="0dp">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/banner_gradient_freeagent"
+                            android:padding="16dp">
+
+                            <TextView
+                                android:id="@+id/tag_freeagent"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/status_badge_modern"
+                                android:backgroundTint="#40FFFFFF"
+                                android:paddingHorizontal="10dp"
+                                android:paddingVertical="4dp"
+                                android:text="SQUAD RECRUITMENT"
+                                android:textColor="@color/white"
+                                android:textSize="10sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@id/tag_freeagent"
+                                android:layout_marginTop="8dp"
+                                android:text="Find Free Agents"
+                                android:textColor="@color/white"
+                                android:textSize="18sp"
+                                android:fontFamily="@font/roboto_bold" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentBottom="true"
+                                android:text="Draft players or register as a free agent"
+                                android:textColor="#EFFFFFFF"
+                                android:textSize="12sp" />
+
+                            <ImageView
+                                android:layout_width="64dp"
+                                android:layout_height="64dp"
+                                android:layout_alignParentEnd="true"
+                                android:layout_alignParentBottom="true"
+                                android:src="@drawable/ic_person"
+                                android:alpha="0.25"
+                                app:tint="@color/white" />
+
+                        </RelativeLayout>
+                    </com.google.android.material.card.MaterialCardView>
+
+                </LinearLayout>
+            </HorizontalScrollView>
+
+
+            <!-- ================= DYNAMIC CATEGORIES ROW ================= -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                android:text="Explore by Sport"
+                style="@style/TextAppearance.App.TitleLarge"
+                android:textSize="18sp"
+                android:fontFamily="@font/roboto_bold" />
+
+             <HorizontalScrollView
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:layout_marginHorizontal="-20dp"
+                 android:paddingHorizontal="20dp"
+                 android:paddingVertical="8dp"
+                 android:clipToPadding="false"
+                 android:clipChildren="false"
+                 android:layout_marginBottom="24dp"
+                 android:scrollbars="none">
+
+                 <LinearLayout
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:orientation="horizontal"
+                     android:clipChildren="false"
+                     android:clipToPadding="false"
+                     android:paddingVertical="4dp">
+
+                     <!-- Sport Pill 1: Cricket -->
+                     <com.google.android.material.chip.Chip
+                         android:id="@+id/chip_sport_cricket"
+                         style="@style/Widget.Material3.Chip.Suggestion"
+                         android:layout_width="wrap_content"
+                         android:layout_height="wrap_content"
+                         android:layout_marginEnd="8dp"
+                         android:layout_marginVertical="4dp"
+                         android:text="🏏 Cricket"
+                         android:textSize="13sp"
+                         app:chipCornerRadius="20dp" />
+
+                     <!-- Sport Pill 2: Football -->
+                     <com.google.android.material.chip.Chip
+                         android:id="@+id/chip_sport_football"
+                         style="@style/Widget.Material3.Chip.Suggestion"
+                         android:layout_width="wrap_content"
+                         android:layout_height="wrap_content"
+                         android:layout_marginEnd="8dp"
+                         android:layout_marginVertical="4dp"
+                         android:text="⚽ Football"
+                         android:textSize="13sp"
+                         app:chipCornerRadius="20dp" />
+
+                     <!-- Sport Pill 3: Badminton -->
+                     <com.google.android.material.chip.Chip
+                         android:id="@+id/chip_sport_badminton"
+                         style="@style/Widget.Material3.Chip.Suggestion"
+                         android:layout_width="wrap_content"
+                         android:layout_height="wrap_content"
+                         android:layout_marginEnd="8dp"
+                         android:layout_marginVertical="4dp"
+                         android:text="🏸 Badminton"
+                         android:textSize="13sp"
+                         app:chipCornerRadius="20dp" />
+
+                     <!-- Sport Pill 4: Basketball -->
+                     <com.google.android.material.chip.Chip
+                         android:id="@+id/chip_sport_basketball"
+                         style="@style/Widget.Material3.Chip.Suggestion"
+                         android:layout_width="wrap_content"
+                         android:layout_height="wrap_content"
+                         android:layout_marginEnd="8dp"
+                         android:layout_marginVertical="4dp"
+                         android:text="🏀 Basketball"
+                         android:textSize="13sp"
+                         app:chipCornerRadius="20dp" />
+
+                     <!-- Sport Pill 5: Volleyball -->
+                     <com.google.android.material.chip.Chip
+                         android:id="@+id/chip_sport_volleyball"
+                         style="@style/Widget.Material3.Chip.Suggestion"
+                         android:layout_width="wrap_content"
+                         android:layout_height="wrap_content"
+                         android:layout_marginVertical="4dp"
+                         android:text="🏐 Volleyball"
+                         android:textSize="13sp"
+                         app:chipCornerRadius="20dp" />
+
+                 </LinearLayout>
+             </HorizontalScrollView>
+
+
+            <!-- ================= DYNAMIC SERVICES GRID ================= -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                android:text="Quick Actions"
+                style="@style/TextAppearance.App.TitleLarge"
+                android:textSize="18sp"
+                android:fontFamily="@font/roboto_bold" />
+
+            <!-- Elegant 2x2 grid of primary quick actions -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginBottom="24dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+                    <!-- Book Slot -->
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/card_book_slot"
+                        style="@style/AppCard"
+                        android:layout_width="0dp"
+                        android:layout_height="110dp"
+                        android:layout_weight="1"
+                        android:layout_marginEnd="6dp"
+                        android:layout_marginBottom="12dp"
+                        android:clickable="true"
+                        android:focusable="true">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:padding="14dp"
+                            android:gravity="center_vertical">
+
+                            <ImageView
+                                android:layout_width="32dp"
+                                android:layout_height="32dp"
+                                android:background="@drawable/circle_bg_blue"
+                                android:padding="7dp"
+                                android:src="@drawable/ic_calendar"
+                                app:tint="@color/info" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:text="Book Slot"
+                                android:textStyle="bold"
+                                android:textColor="?attr/colorOnSurface"
+                                android:textSize="14sp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Reserve court time"
+                                android:textColor="?attr/colorOnSurfaceVariant"
+                                android:textSize="10sp" />
+                        </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <!-- Challenge Board -->
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/card_challenge"
+                        style="@style/AppCard"
+                        android:layout_width="0dp"
+                        android:layout_height="110dp"
+                        android:layout_weight="1"
+                        android:layout_marginStart="6dp"
+                        android:layout_marginBottom="12dp"
+                        android:clickable="true"
+                        android:focusable="true">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:padding="14dp"
+                            android:gravity="center_vertical">
+
+                            <ImageView
+                                android:layout_width="32dp"
+                                android:layout_height="32dp"
+                                android:background="@drawable/circle_bg_red"
+                                android:padding="7dp"
+                                android:src="@drawable/ic_challenge"
+                                app:tint="@color/error" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:text="Challenges"
+                                android:textStyle="bold"
+                                android:textColor="?attr/colorOnSurface"
+                                android:textSize="14sp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Compete with teams"
+                                android:textColor="?attr/colorOnSurfaceVariant"
+                                android:textSize="10sp" />
+                        </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+                    <!-- Score Wall -->
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/card_score_wall"
+                        style="@style/AppCard"
+                        android:layout_width="0dp"
+                        android:layout_height="110dp"
+                        android:layout_weight="1"
+                        android:layout_marginEnd="6dp"
+                        android:clickable="true"
+                        android:focusable="true">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:padding="14dp"
+                            android:gravity="center_vertical">
+
+                            <ImageView
+                                android:layout_width="32dp"
+                                android:layout_height="32dp"
+                                android:background="@drawable/circle_bg_gold"
+                                android:padding="7dp"
+                                android:src="@drawable/ic_score"
+                                app:tint="@color/secondary" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:text="Score Wall"
+                                android:textStyle="bold"
+                                android:textColor="?attr/colorOnSurface"
+                                android:textSize="14sp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Track match results"
+                                android:textColor="?attr/colorOnSurfaceVariant"
+                                android:textSize="10sp" />
+                        </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <!-- Free Agents Market -->
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/card_free_agents"
+                        style="@style/AppCard"
+                        android:layout_width="0dp"
+                        android:layout_height="110dp"
+                        android:layout_weight="1"
+                        android:layout_marginStart="6dp"
+                        android:clickable="true"
+                        android:focusable="true">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:padding="14dp"
+                            android:gravity="center_vertical">
+
+                            <ImageView
+                                android:layout_width="32dp"
+                                android:layout_height="32dp"
+                                android:background="@drawable/circle_bg_blue"
+                                android:padding="7dp"
+                                android:src="@drawable/ic_person"
+                                app:tint="@color/ai_accent" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:text="Free Agents"
+                                android:textStyle="bold"
+                                android:textColor="?attr/colorOnSurface"
+                                android:textSize="14sp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Scout local players"
+                                android:textColor="?attr/colorOnSurfaceVariant"
+                                android:textSize="10sp" />
+                        </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+            <!-- ================= TOURNAMENTS ARENA BANNER (Full Width) ================= -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                android:text="Tournaments Hub"
+                style="@style/TextAppearance.App.TitleLarge"
+                android:textSize="18sp"
+                android:fontFamily="@font/roboto_bold" />
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/card_tournaments"
+                style="@style/AppCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="24dp"
+                android:clickable="true"
+                android:focusable="true">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/splash_gradient"
+                    android:padding="20dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_toStartOf="@id/img_trophy_large">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="TOURNAMENTS ARENA"
+                            android:textColor="@color/gold"
+                            android:textSize="11sp"
+                            android:textStyle="bold"
+                            android:letterSpacing="0.08" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:text="Compete with the Best"
+                            android:textColor="@color/white"
+                            android:textSize="18sp"
+                            android:fontFamily="@font/roboto_bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:text="Join regional sports leagues, track brackets, check fixtures, and earn top championship ranks!"
+                            android:textColor="#D0FFFFFF"
+                            android:textSize="11sp" />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="16dp"
+                            android:text="Enter Arena"
+                            android:textSize="11sp"
+                            android:textColor="@color/primary_dark"
+                            app:backgroundTint="@color/white"
+                            app:cornerRadius="8dp" />
+
+                    </LinearLayout>
+
+                    <ImageView
+                        android:id="@+id/img_trophy_large"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/ic_trophy"
+                        app:tint="@color/gold" />
+
+                </RelativeLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+
+            <!-- ================= RECENT MATCHES SECTION ================= -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                android:text="Recent Live Matches"
+                style="@style/TextAppearance.App.TitleLarge"
+                android:textSize="18sp"
+                android:fontFamily="@font/roboto_bold" />
+
+            <com.google.android.material.card.MaterialCardView
+                style="@style/AppCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="32dp"
+                app:cardBackgroundColor="?attr/colorSurfaceVariant"
+                app:strokeWidth="0dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="20dp"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:src="@drawable/ic_trophy"
+                        android:alpha="0.2"
+                        app:tint="?attr/colorOnSurfaceVariant" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:text="No recent matches found"
+                        android:textStyle="bold"
+                        android:textColor="?attr/colorOnSurfaceVariant"
+                        style="@style/TextAppearance.App.BodyMedium" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="Check the challenge board to start a game"
+                        android:textColor="?attr/colorOnSurfaceVariant"
+                        android:textSize="11sp" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

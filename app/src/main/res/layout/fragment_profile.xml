@@ -1,0 +1,368 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?android:attr/windowBackground">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/app_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorSurface">
+
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed"
+            app:contentScrim="?attr/colorSurface">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp"
+                android:gravity="center">
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/card_profile"
+                    android:layout_width="112dp"
+                    android:layout_height="112dp"
+                    app:cardCornerRadius="56dp"
+                    app:cardElevation="4dp"
+                    app:strokeWidth="3dp"
+                    app:strokeColor="?attr/colorPrimary">
+
+                    <ImageView
+                        android:id="@+id/iv_profile_pic"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/ic_person"
+                        android:padding="24dp"
+                        android:scaleType="centerInside"
+                        android:background="?attr/colorSurfaceVariant"
+                        app:tint="?attr/colorOnSurfaceVariant"/>
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <TextView
+                    android:id="@+id/tv_profile_name"
+                    style="@style/TextAppearance.App.TitleLarge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="User Name"
+                    android:textSize="24sp"/>
+
+                <TextView
+                    android:id="@+id/tv_profile_email"
+                    style="@style/TextAppearance.App.BodyMedium"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="user@example.com"
+                    android:alpha="0.7"/>
+
+            </LinearLayout>
+
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- My Team Profile Card Section -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/card_team_profile"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="0dp"
+                style="@style/AppCard"
+                android:layout_marginBottom="16dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:id="@+id/tv_team_section_title"
+                        style="@style/TextAppearance.App.TitleMedium"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="My Registered Team"
+                        android:textStyle="bold"
+                        android:textColor="?attr/colorPrimary"
+                        android:layout_marginBottom="12dp"/>
+
+                    <!-- Team Info Views -->
+                    <LinearLayout
+                        android:id="@+id/ll_team_info"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tv_team_name"
+                            style="@style/TextAppearance.App.TitleLarge"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Team Name"
+                            android:textStyle="bold"
+                            android:textColor="?attr/colorOnSurface"/>
+
+                        <TextView
+                            android:id="@+id/tv_team_details"
+                            style="@style/TextAppearance.App.BodyMedium"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Captain: John Doe | ⚽ Football"
+                            android:layout_marginTop="4dp"
+                            android:alpha="0.8"/>
+
+                        <TextView
+                            android:id="@+id/tv_team_time_loc"
+                            style="@style/TextAppearance.App.BodySmall"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="📍 Bangalore | Evening"
+                            android:layout_marginTop="4dp"
+                            android:alpha="0.6"/>
+
+                        <!-- Team Squad Section -->
+                        <TextView
+                            android:id="@+id/tv_squad_header"
+                            style="@style/TextAppearance.App.TitleMedium"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Active Squad"
+                            android:textStyle="bold"
+                            android:textColor="?attr/colorPrimary"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginBottom="8dp"/>
+
+                        <LinearLayout
+                            android:id="@+id/ll_squad_container"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:layout_marginBottom="12dp">
+                            <!-- Dynamic squad rows will be loaded here -->
+                        </LinearLayout>
+
+                        <!-- Action Buttons: Edit & Delete -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginTop="16dp"
+                            android:weightSum="2">
+
+                            <com.google.android.material.button.MaterialButton
+                                android:id="@+id/btn_edit_team"
+                                style="@style/Widget.Material3.Button.TonalButton"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:layout_marginEnd="6dp"
+                                android:text="Edit Profile"
+                                app:icon="@drawable/ic_challenge"
+                                app:iconSize="18dp"
+                                app:iconPadding="4dp"/>
+
+                            <com.google.android.material.button.MaterialButton
+                                android:id="@+id/btn_delete_team"
+                                style="@style/Widget.Material3.Button.TonalButton"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:layout_marginStart="6dp"
+                                android:text="Delete Profile"
+                                android:textColor="?attr/colorError"
+                                app:icon="@drawable/ic_close"
+                                app:iconTint="?attr/colorError"
+                                app:iconSize="18dp"
+                                app:iconPadding="4dp"
+                                android:backgroundTint="#FFEBEE"/>
+
+                        </LinearLayout>
+
+                        <!-- Pending Join Requests Section -->
+                        <TextView
+                            android:id="@+id/tv_join_requests_header"
+                            style="@style/TextAppearance.App.TitleMedium"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Pending Join Requests"
+                            android:textStyle="bold"
+                            android:textColor="?attr/colorPrimary"
+                            android:layout_marginTop="24dp"
+                            android:layout_marginBottom="8dp"
+                            android:visibility="gone"/>
+
+                        <LinearLayout
+                            android:id="@+id/ll_join_requests_container"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:visibility="gone">
+                            <!-- Dynamic join requests will be loaded here -->
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <!-- Empty state if team is not registered -->
+                    <LinearLayout
+                        android:id="@+id/ll_team_empty"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:padding="8dp"
+                        android:visibility="gone">
+
+                        <TextView
+                            style="@style/TextAppearance.App.BodyMedium"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="No registered team profile yet.\nSet up a team to host events &amp; matches!"
+                            android:alpha="0.7"
+                            android:layout_marginBottom="12dp"/>
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btn_register_team_prompt"
+                            style="@style/PrimaryButton"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Register My Team"
+                            app:icon="@drawable/ic_add"/>
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btn_join_team_prompt"
+                            style="@style/Widget.Material3.Button.TonalButton"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:text="Join an Existing Team"
+                            app:icon="@drawable/ic_challenge"/>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="0dp"
+                style="@style/AppCard"
+                android:layout_marginBottom="16dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btn_my_bookings"
+                        style="@style/Widget.Material3.Button.TextButton"
+                        android:layout_width="match_parent"
+                        android:layout_height="64dp"
+                        android:text="My Bookings"
+                        android:gravity="start|center_vertical"
+                        android:paddingHorizontal="16dp"
+                        app:icon="@drawable/ic_calendar"
+                        app:iconSize="24dp"
+                        app:iconPadding="16dp"
+                        android:textSize="16sp"
+                        app:iconTint="?attr/colorPrimary"/>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="?attr/colorSurfaceVariant"
+                        android:layout_marginHorizontal="16dp"/>
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btn_my_challenges"
+                        style="@style/Widget.Material3.Button.TextButton"
+                        android:layout_width="match_parent"
+                        android:layout_height="64dp"
+                        android:text="My Challenges"
+                        android:gravity="start|center_vertical"
+                        android:paddingHorizontal="16dp"
+                        app:icon="@drawable/ic_challenge"
+                        app:iconSize="24dp"
+                        app:iconPadding="16dp"
+                        android:textSize="16sp"
+                        app:iconTint="?attr/colorPrimary"/>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="?attr/colorSurfaceVariant"
+                        android:layout_marginHorizontal="16dp"/>
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btn_settings"
+                        style="@style/Widget.Material3.Button.TextButton"
+                        android:layout_width="match_parent"
+                        android:layout_height="64dp"
+                        android:text="Settings"
+                        android:gravity="start|center_vertical"
+                        android:paddingHorizontal="16dp"
+                        app:icon="@drawable/ic_home"
+                        app:iconSize="24dp"
+                        app:iconPadding="16dp"
+                        android:textSize="16sp"
+                        app:iconTint="?attr/colorSecondary"/>
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_logout"
+                style="@style/Widget.Material3.Button.TonalButton"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:text="Logout"
+                app:icon="@drawable/ic_logout"
+                app:iconGravity="textStart"
+                app:iconPadding="8dp"
+                android:textColor="?attr/colorError"
+                app:iconTint="?attr/colorError"
+                android:layout_marginTop="8dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="App Version 1.0.0"
+                style="@style/TextAppearance.App.BodyMedium"
+                android:gravity="center"
+                android:textSize="12sp"
+                android:alpha="0.5"
+                android:layout_marginTop="32dp"
+                android:layout_marginBottom="32dp"/>
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -1,0 +1,44 @@
+<resources>
+    <string name="app_name">Kreeda-Ankana</string>
+    <string name="tagline">Village Sports, Organized!</string>
+
+    <!-- Nav Labels -->
+    <string name="nav_home">Home</string>
+    <string name="nav_calendar">Calendar</string>
+    <string name="nav_challenges">Challenges</string>
+    <string name="nav_scores">Scores</string>
+
+    <!-- Screens -->
+    <string name="title_register_team">Register Team</string>
+    <string name="title_book_slot">Book a Slot</string>
+    <string name="title_post_challenge">Post Challenge</string>
+    <string name="title_add_score">Record Result</string>
+    <string name="title_ground_calendar">Ground Calendar</string>
+    <string name="title_challenge_board">Challenge Board</string>
+    <string name="title_score_wall">Score Wall</string>
+
+    <!-- Buttons -->
+    <string name="btn_register">Register Team</string>
+    <string name="btn_book">Book Slot</string>
+    <string name="btn_post">Post Challenge</string>
+    <string name="btn_record">Record Result</string>
+    <string name="btn_accept">Accept Challenge</string>
+    <string name="btn_ai_message">AI Message</string>
+    <string name="btn_find_opponent">Find Opponent</string>
+
+    <!-- Messages -->
+    <string name="success_team_registered">Team Registered Successfully! 🎉</string>
+    <string name="success_slot_booked">Slot Booked Successfully! 📅</string>
+    <string name="success_challenge_posted">Challenge Posted! 🔥</string>
+    <string name="success_score_recorded">Match Result Recorded! 🏆</string>
+    <string name="error_conflict">Slot already booked! Choose a different time.</string>
+    <string name="error_no_internet">No internet connection</string>
+    <string name="empty_calendar">No bookings for this day! Ground is free.</string>
+    <string name="empty_challenges">No challenges yet! Be the first to post one.</string>
+    <string name="empty_scores">No scores yet! Record your first match.</string>
+    <string name="register_team_first">Register your team first!</string>
+
+    <!-- Google Auth Web Client ID Placeholder -->
+    <!-- Replace this value with your Firebase Web Client ID if it does not automatically generate from google-services.json -->
+    <string name="default_web_client_id">464243476322-placeholder.apps.googleusercontent.com</string>
+</resources>

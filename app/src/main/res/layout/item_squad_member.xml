@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:paddingVertical="10dp"
+    android:paddingHorizontal="4dp"
+    android:gravity="center_vertical"
+    android:background="?android:attr/selectableItemBackground">
+
+    <!-- Initials circle with custom background color based on role -->
+    <FrameLayout
+        android:id="@+id/fl_avatar_container"
+        android:layout_width="44dp"
+        android:layout_height="44dp"
+        android:background="@drawable/circle_bg_blue"
+        android:layout_marginEnd="16dp">
+
+        <TextView
+            android:id="@+id/tv_player_initials"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:textSize="14sp"
+            android:text="JD"/>
+    </FrameLayout>
+
+    <!-- Name and Role info -->
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_weight="1">
+
+        <TextView
+            android:id="@+id/tv_squad_player_name"
+            style="@style/TextAppearance.App.BodyLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="John Doe"
+            android:textStyle="bold"
+            android:textColor="?attr/colorOnSurface"/>
+
+        <TextView
+            android:id="@+id/tv_squad_player_role"
+            style="@style/TextAppearance.App.BodySmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Batsman"
+            android:layout_marginTop="2dp"
+            android:textColor="?attr/colorOnSurfaceVariant"
+            android:alpha="0.8"/>
+    </LinearLayout>
+
+    <!-- Jersey Number Tag -->
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/card_jersey"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="0dp"
+        app:strokeWidth="1dp"
+        app:strokeColor="?attr/colorSurfaceVariant"
+        app:cardBackgroundColor="?attr/colorSurface">
+
+        <TextView
+            android:id="@+id/tv_squad_player_jersey"
+            style="@style/TextAppearance.App.BodySmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="10dp"
+            android:paddingVertical="4dp"
+            android:text="#7"
+            android:textStyle="bold"
+            android:textColor="?attr/colorPrimary"/>
+    </com.google.android.material.card.MaterialCardView>
+
+</LinearLayout>
