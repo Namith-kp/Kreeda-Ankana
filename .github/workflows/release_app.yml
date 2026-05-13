@@ -1,0 +1,71 @@
+name: Compile & Publish App Release
+
+on:
+  push:
+    tags:
+      - 'v*' # Trigger whenever you push a version tag starting with v (e.g. v1.0.1)
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'zulu'
+          java-version: '17'
+          cache: 'gradle'
+
+      - name: Grant Execute Permission for Gradlew
+        run: chmod +x gradlew
+
+      - name: Create Mock google-services.json for Build
+        run: |
+          if [ ! -f app/google-services.json ]; then
+            cp app/google-services.json.example app/google-services.json
+          fi
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Install Firebase Dependencies
+        run: pip install firebase-admin
+
+      - name: Extract and Verify Version Info
+        run: python scripts/release_updater.py
+
+      - name: Build APK (Assemble Release/Debug)
+        run: ./gradlew assembleDebug
+
+      - name: Create GitHub Release
+        id: create_release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ github.ref_name }}
+          name: Kreeda Ankana ${{ env.VERSION_NAME }} - Release
+          draft: false
+          prerelease: false
+          files: app/build/outputs/apk/debug/app-debug.apk
+          body: |
+            # 🚀 Kreeda Ankana ${{ env.VERSION_NAME }} - Updated Version!
+            
+            This release was automatically compiled, verified, and published via GitHub Actions CI/CD pipeline.
+            
+            ### 📲 How to Install:
+            1. Download the **`app-debug.apk`** from the Assets list below.
+            2. Run the file on your Android device and enjoy the update!
+            
+            _Live users have been notified of this update via the in-app popup dialog!_
+
+      - name: Update Live Firestore Configuration
+        env:
+          FIREBASE_SERVICE_ACCOUNT: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_KEY }}
+        run: python scripts/release_updater.py
