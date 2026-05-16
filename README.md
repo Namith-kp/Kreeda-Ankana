@@ -124,6 +124,39 @@ suspend fun isTeamNameTaken(teamName: String, sport: String, excludeTeamId: Stri
 
 ---
 
+## 📁 PROJECT STRUCTURE
+
+The Kreeda Ankana app follows a clean architecture pattern with a strong separation of concerns, heavily utilizing Kotlin Coroutines, ViewModels, and Android ViewBinding.
+
+```text
+Kreeda-Ankana/
+├── app/
+│   ├── build.gradle.kts                # App-level build logic & dependencies
+│   ├── google-services.json            # Firebase credentials (local only)
+│   └── src/
+│       └── main/
+│           ├── AndroidManifest.xml     # Application configuration & permissions
+│           ├── java/com/kreedaankana/
+│           │   ├── ui/                 # View layer: Activities, Fragments, Adapters
+│           │   │   ├── auth/           # Login, OTP verification
+│           │   │   ├── home/           # Dashboard & Main feed
+│           │   │   └── profile/        # Squad builder & Profile management
+│           │   ├── data/               # Model layer: Entities & Data classes
+│           │   │   └── model/          # User, Team, Match objects
+│           │   ├── repository/         # Data access & Firebase integration layer
+│           │   └── viewmodel/          # State management & Business logic
+│           └── res/                    # Resources layer
+│               ├── layout/             # XML layouts (Material 3 components)
+│               ├── drawable/           # Vector icons & background aesthetics
+│               ├── values/             # Colors, themes, typography, and strings
+│               └── raw/                # Intro videos & cinematic assets
+├── build.gradle.kts                    # Root project build configuration
+└── .github/
+    └── workflows/                      # CI/CD pipelines & GitHub Actions automations
+```
+
+---
+
 ## 🚀 SETUP & INTEGRATION DEPLOYMENT
 
 > [!IMPORTANT]
