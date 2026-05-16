@@ -17,7 +17,7 @@
 
 ---
 
-## 📸 CINEMATIC APP SHOWCASE
+## 📸 APP SHOWCASE
 
 <div align="center">
   <table>
