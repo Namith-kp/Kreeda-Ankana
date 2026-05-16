@@ -266,42 +266,71 @@ class ProfileFragment : Fragment() {
         } else {
             binding.tvSquadHeader.visibility = View.VISIBLE
             binding.llSquadContainer.visibility = View.VISIBLE
-            
-            for (player in team.players) {
-                val playerView = layoutInflater.inflate(com.kreedaankana.R.layout.item_squad_member, binding.llSquadContainer, false)
-                val tvName = playerView.findViewById<android.widget.TextView>(com.kreedaankana.R.id.tv_squad_player_name)
-                val tvRole = playerView.findViewById<android.widget.TextView>(com.kreedaankana.R.id.tv_squad_player_role)
-                val tvJersey = playerView.findViewById<android.widget.TextView>(com.kreedaankana.R.id.tv_squad_player_jersey)
-                val tvInitials = playerView.findViewById<android.widget.TextView>(com.kreedaankana.R.id.tv_player_initials)
-                val flAvatar = playerView.findViewById<android.widget.FrameLayout>(com.kreedaankana.R.id.fl_avatar_container)
-                
-                tvName.text = player.name
-                tvRole.text = player.role
-                
-                if (player.number.isNotEmpty()) {
-                    tvJersey.text = "#${player.number}"
-                    tvJersey.visibility = View.VISIBLE
-                } else {
-                    tvJersey.visibility = View.GONE
+            val chunkedPlayers = team.players.chunked(2)
+            for (rowPair in chunkedPlayers) {
+                val rowLayout = android.widget.LinearLayout(requireContext()).apply {
+                    orientation = android.widget.LinearLayout.HORIZONTAL
+                    layoutParams = android.widget.LinearLayout.LayoutParams(
+                        android.widget.LinearLayout.LayoutParams.MATCH_PARENT,
+                        android.widget.LinearLayout.LayoutParams.WRAP_CONTENT
+                    )
                 }
                 
-                val initials = player.name.trim().split(" ")
-                    .filter { it.isNotEmpty() }
-                    .take(2)
-                    .map { it.first().uppercase() }
-                    .joinToString("")
-                tvInitials.text = if (initials.isNotEmpty()) initials else "?"
-                
-                val drawableRes = when {
-                    player.role.contains("Captain", ignoreCase = true) -> com.kreedaankana.R.drawable.circle_bg_gold
-                    player.role.contains("Wicketkeeper", ignoreCase = true) || player.role.contains("Goalkeeper", ignoreCase = true) -> com.kreedaankana.R.drawable.circle_bg_red
-                    player.role.contains("All-Rounder", ignoreCase = true) || player.role.contains("Midfielder", ignoreCase = true) -> com.kreedaankana.R.drawable.circle_bg_gold
-                    player.role.contains("Bowler", ignoreCase = true) || player.role.contains("Defender", ignoreCase = true) -> com.kreedaankana.R.drawable.circle_bg_red
-                    else -> com.kreedaankana.R.drawable.circle_bg_blue
+                for (player in rowPair) {
+                    val playerView = layoutInflater.inflate(com.kreedaankana.R.layout.item_squad_member, rowLayout, false)
+                    playerView.layoutParams = android.widget.LinearLayout.LayoutParams(
+                        0,
+                        android.widget.LinearLayout.LayoutParams.WRAP_CONTENT,
+                        1f
+                    )
+                    
+                    val tvName = playerView.findViewById<android.widget.TextView>(com.kreedaankana.R.id.tv_squad_player_name)
+                    val tvRole = playerView.findViewById<android.widget.TextView>(com.kreedaankana.R.id.tv_squad_player_role)
+                    val tvJersey = playerView.findViewById<android.widget.TextView>(com.kreedaankana.R.id.tv_squad_player_jersey)
+                    val tvInitials = playerView.findViewById<android.widget.TextView>(com.kreedaankana.R.id.tv_player_initials)
+                    val flAvatar = playerView.findViewById<android.widget.FrameLayout>(com.kreedaankana.R.id.fl_avatar_container)
+                    
+                    tvName.text = player.name
+                    tvRole.text = player.role
+                    
+                    if (player.number.isNotEmpty()) {
+                        tvJersey.text = "#${player.number}"
+                        tvJersey.visibility = View.VISIBLE
+                    } else {
+                        tvJersey.visibility = View.GONE
+                    }
+                    
+                    val initials = player.name.trim().split(" ")
+                        .filter { it.isNotEmpty() }
+                        .take(2)
+                        .map { it.first().uppercase() }
+                        .joinToString("")
+                    tvInitials.text = if (initials.isNotEmpty()) initials else "?"
+                    
+                    val drawableRes = when {
+                        player.role.contains("Captain", ignoreCase = true) -> com.kreedaankana.R.drawable.circle_bg_gold
+                        player.role.contains("Wicketkeeper", ignoreCase = true) || player.role.contains("Goalkeeper", ignoreCase = true) -> com.kreedaankana.R.drawable.circle_bg_red
+                        player.role.contains("All-Rounder", ignoreCase = true) || player.role.contains("Midfielder", ignoreCase = true) -> com.kreedaankana.R.drawable.circle_bg_gold
+                        player.role.contains("Bowler", ignoreCase = true) || player.role.contains("Defender", ignoreCase = true) -> com.kreedaankana.R.drawable.circle_bg_red
+                        else -> com.kreedaankana.R.drawable.circle_bg_blue
+                    }
+                    flAvatar.setBackgroundResource(drawableRes)
+                    
+                    rowLayout.addView(playerView)
                 }
-                flAvatar.setBackgroundResource(drawableRes)
                 
-                binding.llSquadContainer.addView(playerView)
+                // Add a dummy view to balance the row if it has an odd number of items
+                if (rowPair.size == 1) {
+                    val spacer = android.view.View(requireContext())
+                    spacer.layoutParams = android.widget.LinearLayout.LayoutParams(
+                        0,
+                        android.widget.LinearLayout.LayoutParams.MATCH_PARENT,
+                        1f
+                    )
+                    rowLayout.addView(spacer)
+                }
+                
+                binding.llSquadContainer.addView(rowLayout)
             }
         }
     }
