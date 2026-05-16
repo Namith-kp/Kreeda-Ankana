@@ -289,11 +289,7 @@ class ProfileFragment : Fragment() {
                     val tvInitials = playerView.findViewById<android.widget.TextView>(com.kreedaankana.R.id.tv_player_initials)
                     val flAvatar = playerView.findViewById<android.widget.FrameLayout>(com.kreedaankana.R.id.fl_avatar_container)
                     
-                    if (player.number.isNotEmpty()) {
-                        tvName.text = android.text.Html.fromHtml("<b>${player.name}</b> <font color='#00BFA5'>(#${player.number})</font>", android.text.Html.FROM_HTML_MODE_LEGACY)
-                    } else {
-                        tvName.text = player.name
-                    }
+                    tvName.text = player.name
                     tvRole.text = player.role
                     
                     val initials = player.name.trim().split(" ")
