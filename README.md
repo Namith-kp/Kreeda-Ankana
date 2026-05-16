@@ -17,6 +17,40 @@
 
 ---
 
+## 📸 CINEMATIC APP SHOWCASE
+
+<div align="center">
+  <table>
+    <tr>
+      <td align="center"><b>🏟️ Home Dashboard</b></td>
+      <td align="center"><b>📈 Live Score Wall</b></td>
+      <td align="center"><b>🏆 Tournament Brackets</b></td>
+      <td align="center"><b>🛡️ Squad Builder</b></td>
+    </tr>
+    <tr>
+      <!-- Drop your screenshots in the 'screenshots' folder and name them as below, or update the links! -->
+      <td><img src="screenshots/1_home.png" width="220" style="border-radius: 16px; box-shadow: 0 8px 16px rgba(0,0,0,0.3);" alt="Home Dashboard"/></td>
+      <td><img src="screenshots/2_scores.png" width="220" style="border-radius: 16px; box-shadow: 0 8px 16px rgba(0,0,0,0.3);" alt="Live Scores"/></td>
+      <td><img src="screenshots/3_tournaments.png" width="220" style="border-radius: 16px; box-shadow: 0 8px 16px rgba(0,0,0,0.3);" alt="Tournaments"/></td>
+      <td><img src="screenshots/4_squad.png" width="220" style="border-radius: 16px; box-shadow: 0 8px 16px rgba(0,0,0,0.3);" alt="Squad Builder"/></td>
+    </tr>
+    <tr>
+      <td align="center"><b>📅 Turf Booking</b></td>
+      <td align="center"><b>💬 Peer Chat & Lobby</b></td>
+      <td align="center"><b>🤝 FA Matcher</b></td>
+      <td align="center"><b>👤 Player Profile</b></td>
+    </tr>
+    <tr>
+      <td><img src="screenshots/5_booking.png" width="220" style="border-radius: 16px; box-shadow: 0 8px 16px rgba(0,0,0,0.3);" alt="Turf Booking"/></td>
+      <td><img src="screenshots/6_chat.png" width="220" style="border-radius: 16px; box-shadow: 0 8px 16px rgba(0,0,0,0.3);" alt="Peer Chat"/></td>
+      <td><img src="screenshots/7_matchmaking.png" width="220" style="border-radius: 16px; box-shadow: 0 8px 16px rgba(0,0,0,0.3);" alt="Matchmaking"/></td>
+      <td><img src="screenshots/8_profile.png" width="220" style="border-radius: 16px; box-shadow: 0 8px 16px rgba(0,0,0,0.3);" alt="Player Profile"/></td>
+    </tr>
+  </table>
+</div>
+
+---
+
 ## 🛠️ ARCHITECTURAL STACK & ENGINE SPECS
 
 ```mermaid
