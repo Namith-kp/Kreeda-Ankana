@@ -36,13 +36,13 @@
     </tr>
     <tr>
       <td align="center"><b>📅 Turf Booking</b></td>
-      <td align="center"><b>💬 Peer Chat & Lobby</b></td>
+      <td align="center"><b>🎯 Challenges</b></td>
       <td align="center"><b>🤝 FA Matcher</b></td>
       <td align="center"><b>👤 Player Profile</b></td>
     </tr>
     <tr>
       <td><img src="screenshots/5_booking.png" width="220" style="border-radius: 16px; box-shadow: 0 8px 16px rgba(0,0,0,0.3);" alt="Turf Booking"/></td>
-      <td><img src="screenshots/6_chat.png" width="220" style="border-radius: 16px; box-shadow: 0 8px 16px rgba(0,0,0,0.3);" alt="Peer Chat"/></td>
+      <td><img src="screenshots/6_challenges.png" width="220" style="border-radius: 16px; box-shadow: 0 8px 16px rgba(0,0,0,0.3);" alt="Challenges"/></td>
       <td><img src="screenshots/7_matchmaking.png" width="220" style="border-radius: 16px; box-shadow: 0 8px 16px rgba(0,0,0,0.3);" alt="Matchmaking"/></td>
       <td><img src="screenshots/8_profile.png" width="220" style="border-radius: 16px; box-shadow: 0 8px 16px rgba(0,0,0,0.3);" alt="Player Profile"/></td>
     </tr>

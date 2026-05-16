@@ -10,7 +10,7 @@ Make sure you rename your image files to exactly match these filenames, or updat
 3. `3_tournaments.png` -> Tournament Brackets
 4. `4_squad.png` -> Squad Builder
 5. `5_booking.png` -> Turf Booking
-6. `6_chat.png` -> Peer Chat & Lobby
+6. `6_challenges.png` -> Challenges & Events
 7. `7_matchmaking.png` -> Free Agent Matcher
 8. `8_profile.png` -> Player Profile
 
