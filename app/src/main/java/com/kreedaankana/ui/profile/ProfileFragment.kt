@@ -286,19 +286,15 @@ class ProfileFragment : Fragment() {
                     
                     val tvName = playerView.findViewById<android.widget.TextView>(com.kreedaankana.R.id.tv_squad_player_name)
                     val tvRole = playerView.findViewById<android.widget.TextView>(com.kreedaankana.R.id.tv_squad_player_role)
-                    val tvJersey = playerView.findViewById<android.widget.TextView>(com.kreedaankana.R.id.tv_squad_player_jersey)
                     val tvInitials = playerView.findViewById<android.widget.TextView>(com.kreedaankana.R.id.tv_player_initials)
                     val flAvatar = playerView.findViewById<android.widget.FrameLayout>(com.kreedaankana.R.id.fl_avatar_container)
                     
-                    tvName.text = player.name
-                    tvRole.text = player.role
-                    
                     if (player.number.isNotEmpty()) {
-                        tvJersey.text = "(#${player.number})"
-                        tvJersey.visibility = View.VISIBLE
+                        tvName.text = android.text.Html.fromHtml("<b>${player.name}</b> <font color='#00BFA5'>(#${player.number})</font>", android.text.Html.FROM_HTML_MODE_LEGACY)
                     } else {
-                        tvJersey.visibility = View.GONE
+                        tvName.text = player.name
                     }
+                    tvRole.text = player.role
                     
                     val initials = player.name.trim().split(" ")
                         .filter { it.isNotEmpty() }
