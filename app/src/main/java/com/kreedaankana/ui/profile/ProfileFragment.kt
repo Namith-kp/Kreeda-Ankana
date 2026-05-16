@@ -294,7 +294,7 @@ class ProfileFragment : Fragment() {
                     tvRole.text = player.role
                     
                     if (player.number.isNotEmpty()) {
-                        tvJersey.text = "#${player.number}"
+                        tvJersey.text = "(#${player.number})"
                         tvJersey.visibility = View.VISIBLE
                     } else {
                         tvJersey.visibility = View.GONE
