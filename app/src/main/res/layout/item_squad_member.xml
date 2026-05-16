@@ -92,7 +92,7 @@
 
             <TextView
                 android:id="@+id/tv_squad_player_jersey"
-                style="@style/TextAppearance.App.LabelLarge"
+                style="@style/TextAppearance.App.BodySmall"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingHorizontal="10dp"
