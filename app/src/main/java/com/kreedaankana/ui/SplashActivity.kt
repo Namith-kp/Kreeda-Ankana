@@ -35,6 +35,7 @@ class SplashActivity : AppCompatActivity() {
         
         binding.videoViewSplash.setOnPreparedListener { mediaPlayer ->
             // Prevent audio focus issues and start playback
+            mediaPlayer.setVolume(0f, 0f) // Mute the intro video sound
             mediaPlayer.start()
             
             // Adjust VideoView dimensions dynamically to match original video aspect ratio
