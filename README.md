@@ -171,7 +171,7 @@ Kreeda-Ankana/
 
 #### 1. Clone the project locally
 ```bash
-git clone https://github.com/YOUR_GITHUB_USERNAME/Kreeda-Ankana.git
+git clone https://github.com/Namith-kp/Kreeda-Ankana.git
 cd "Kreeda Ankana"
 ```
 
