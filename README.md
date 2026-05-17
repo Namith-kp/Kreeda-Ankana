@@ -11,6 +11,12 @@
   <a href="https://gradle.org"><img src="https://img.shields.io/badge/Build-Gradle%20Kotlin%20DSL-007FFF.svg?style=for-the-badge&logo=gradle" alt="Gradle Kotlin DSL"/></a>
 </p>
 
+<p align="center">
+  <a href="https://github.com/Namith-kp/Kreeda-Ankana/releases/latest">
+    <img src="https://img.shields.io/badge/DOWNLOAD_LATEST_APK-2EA043?style=for-the-badge&logo=android&logoColor=white" alt="Download Latest APK"/>
+  </a>
+</p>
+
 ---
 
 > **`Kreeda Ankana`** *(Sanskrit/Kannada: Sports Arena)* is a premium, state-of-the-art native Android application designed to unify the local sports ecosystem. It functions as a cinematic center-stage dashboard for **automated stadium booking, dynamic tournament brackets, real-time match scores, squad creation, and player matchmaking.**
